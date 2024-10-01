@@ -23,6 +23,14 @@ const getAllPlayers = (res) => __awaiter(void 0, void 0, void 0, function* () {
         data: result,
     });
 });
+const getAllRequest = (res) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield player_services_1.playerServices.getAllRequest();
+    res.status(http_status_1.default.OK).json({
+        success: true,
+        message: "All player fetched successfully",
+        data: result,
+    });
+});
 const getPlayerById = (res, req, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
@@ -80,4 +88,5 @@ exports.playerControllers = {
     soldPlayer,
     getPlayerById,
     removeTeamPlayer,
+    getAllRequest,
 };

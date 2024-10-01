@@ -14,6 +14,11 @@ router.get("/",
 (req, res, next) => {
     return player_controller_1.playerControllers.getAllPlayers(res);
 });
+router.get("/request", 
+// auth("CAPTAIN"),
+(req, res, next) => {
+    return player_controller_1.playerControllers.getAllRequest(res);
+});
 router.get("/:id", (req, res, next) => {
     return player_controller_1.playerControllers.getPlayerById(res, req, next);
 });

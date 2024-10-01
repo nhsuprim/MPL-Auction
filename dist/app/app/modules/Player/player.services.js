@@ -26,6 +26,17 @@ const getAllPlayers = () => __awaiter(void 0, void 0, void 0, function* () {
     });
     return players;
 });
+const getAllRequest = () => __awaiter(void 0, void 0, void 0, function* () {
+    const players = yield prisma_1.default.player.findMany({
+        where: {
+            isConfirmed: false,
+        },
+        include: {
+            team: true,
+        },
+    });
+    return players;
+});
 const soldPlayer = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
     const { teamId, auctionStatus, playerCost } = payload;
     // Start a transaction
@@ -125,4 +136,5 @@ exports.playerServices = {
     soldPlayer,
     getPlayerById,
     removeTeamPlayer,
+    getAllRequest
 };
