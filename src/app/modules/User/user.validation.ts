@@ -56,7 +56,7 @@ const createPlayer = z.object({
         }),
         age: z.number().optional(), // Optional field
         battingOrder: z.number().optional(), // Optional field
-        bowlingType: z.enum(["SPIN", "FAST", "MEDIUM", "NONE"]).optional(),
+        bowlingType: z.enum(["NONE", "SPIN", "FAST", "MEDIUM"]).optional(),
         auctionStatus: z.enum(["AVAILABLE", "SOLD"]),
     }),
 });
