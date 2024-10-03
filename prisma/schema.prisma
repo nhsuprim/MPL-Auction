@@ -58,6 +58,7 @@ model Player {
   bowlingType   BowlingType?  // Optional bowling type
   auctionStatus PlayerStatus
   transactionNumber String?
+  address String?
   playerCost Int?
   contactNumber  String
   isConfirmed   Boolean      @default(false)
@@ -94,6 +95,7 @@ enum BowlingType {
   SPIN
   FAST
   MEDIUM
+  NONE
 }
 enum PlayerStatus {
   AVAILABLE
