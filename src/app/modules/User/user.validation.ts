@@ -11,6 +11,9 @@ const createAdmin = z.object({
         contactNumber: z.string({
             required_error: "Contact Number is required",
         }),
+        address: z.string({
+            required_error: "Address is required",
+        }),
         email: z.string({
             required_error: "Email is required",
         }),
