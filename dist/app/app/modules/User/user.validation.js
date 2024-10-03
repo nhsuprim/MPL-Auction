@@ -34,7 +34,7 @@ const createCaptain = zod_1.z.object({
         }),
     }),
 });
-//updated zod
+//updated zod module
 const createPlayer = zod_1.z.object({
     password: zod_1.z.string({
         required_error: "Password is required",
