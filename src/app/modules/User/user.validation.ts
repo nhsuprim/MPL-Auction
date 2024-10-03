@@ -11,9 +11,6 @@ const createAdmin = z.object({
         contactNumber: z.string({
             required_error: "Contact Number is required",
         }),
-        address: z.string({
-            required_error: "Address is required",
-        }),
         email: z.string({
             required_error: "Email is required",
         }),
@@ -46,6 +43,9 @@ const createPlayer = z.object({
         contactNumber: z.string({
             required_error: "Contact Number is required",
         }),
+        address: z.string({
+            required_error: "Address is required",
+        }),
         email: z.string({
             required_error: "Email is required",
         }),
@@ -54,7 +54,7 @@ const createPlayer = z.object({
         }),
         age: z.number().optional(), // Optional field
         battingOrder: z.number().optional(), // Optional field
-        bowlingType: z.enum(["SPIN", "FAST", "MEDIUM"]).optional(),
+        bowlingType: z.enum(["SPIN", "FAST", "MEDIUM", "NONE"]).optional(),
         auctionStatus: z.enum(["AVAILABLE", "SOLD"]),
     }),
 });
