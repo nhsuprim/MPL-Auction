@@ -32,7 +32,7 @@ const createCaptain = z.object({
         }),
     }),
 });
-//updated
+//updated zod
 
 const createPlayer = z.object({
     password: z.string({
