@@ -135,6 +135,7 @@ const createPlayer = (req) => __awaiter(void 0, void 0, void 0, function* () {
                 email: req.body.player.email,
                 images: imageUrls,
                 contactNumber: req.body.player.contactNumber,
+                address: req.body.player.address,
                 age: req.body.player.age,
                 battingOrder: req.body.player.battingOrder,
                 bowlingType: req.body.player.bowlingType,
