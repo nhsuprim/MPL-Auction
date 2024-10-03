@@ -9,6 +9,11 @@ router.delete(
     auth(UserRole.ADMIN),
     adminController.deleteCaptain
 );
+router.get(
+    "/request-player",
+    // auth(UserRole.ADMIN),
+    adminController.requestPlayer
+);
 router.delete(
     "/delete-player/:id",
     auth(UserRole.ADMIN),

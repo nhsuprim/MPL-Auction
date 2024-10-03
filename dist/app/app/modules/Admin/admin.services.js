@@ -97,6 +97,17 @@ const confirmPlayer = (id) => __awaiter(void 0, void 0, void 0, function* () {
     });
     return player;
 });
+const requestPlayer = () => __awaiter(void 0, void 0, void 0, function* () {
+    const player = yield prisma_1.default.player.findMany({
+        where: {
+            isConfirmed: false,
+        },
+        include: {
+            team: true,
+        },
+    });
+    return player;
+});
 const createSuperAdmin = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const hashedPassword = yield bcrypt.hash(payload.password, 12);
     const userData = {
@@ -129,4 +140,5 @@ exports.adminService = {
     confirmPlayer,
     deleteTeam,
     createSuperAdmin,
+    requestPlayer,
 };

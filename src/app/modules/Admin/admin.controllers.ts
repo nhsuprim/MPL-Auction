@@ -16,8 +16,11 @@ const deleteCaptain = async (
             message: "Captain deleted successfully",
             data: result,
         });
-    } catch (error) {
-        next(error);
+    } catch (error: any) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
     }
 };
 
@@ -35,8 +38,11 @@ const deletePlayer = async (
             message: "Player deleted successfully",
             data: result,
         });
-    } catch (error) {
-        next(error);
+    } catch (error: any) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
     }
 };
 
@@ -50,8 +56,11 @@ const deleteTeam = async (req: Request, res: Response, next: NextFunction) => {
             message: "Team deleted successfully",
             data: result,
         });
-    } catch (error) {
-        next(error);
+    } catch (error: any) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
     }
 };
 
@@ -70,8 +79,32 @@ const confirmPlayer = async (
             message: "Player confirmed successfully",
             data: result,
         });
-    } catch (error) {
-        next(error);
+    } catch (error: any) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
+
+const requestPlayer = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    try {
+        const result = await adminService.requestPlayer();
+
+        return res.status(httpStatus.OK).json({
+            success: true,
+            message: "Player fetched successfully",
+            data: result,
+        });
+    } catch (error: any) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
     }
 };
 
@@ -97,4 +130,5 @@ export const adminController = {
     confirmPlayer,
     deleteTeam,
     createSuperAdmin,
+    requestPlayer,
 };

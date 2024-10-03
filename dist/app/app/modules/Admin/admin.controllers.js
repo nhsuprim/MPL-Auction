@@ -26,7 +26,10 @@ const deleteCaptain = (req, res, next) => __awaiter(void 0, void 0, void 0, func
         });
     }
     catch (error) {
-        next(error);
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
     }
 });
 const deletePlayer = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -40,7 +43,10 @@ const deletePlayer = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
         });
     }
     catch (error) {
-        next(error);
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
     }
 });
 const deleteTeam = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -54,7 +60,10 @@ const deleteTeam = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
         });
     }
     catch (error) {
-        next(error);
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
     }
 });
 const confirmPlayer = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -68,7 +77,26 @@ const confirmPlayer = (req, res, next) => __awaiter(void 0, void 0, void 0, func
         });
     }
     catch (error) {
-        next(error);
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+});
+const requestPlayer = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield admin_services_1.adminService.requestPlayer();
+        return res.status(http_status_1.default.OK).json({
+            success: true,
+            message: "Player fetched successfully",
+            data: result,
+        });
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
     }
 });
 const createSuperAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -93,4 +121,5 @@ exports.adminController = {
     confirmPlayer,
     deleteTeam,
     createSuperAdmin,
+    requestPlayer,
 };

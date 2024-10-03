@@ -10,6 +10,9 @@ const authMiddleware_1 = __importDefault(require("../../middleware/authMiddlewar
 const client_1 = require("@prisma/client");
 const router = express_1.default.Router();
 router.delete("/delete-captain/:id", (0, authMiddleware_1.default)(client_1.UserRole.ADMIN), admin_controllers_1.adminController.deleteCaptain);
+router.get("/request-player", 
+// auth(UserRole.ADMIN),
+admin_controllers_1.adminController.requestPlayer);
 router.delete("/delete-player/:id", (0, authMiddleware_1.default)(client_1.UserRole.ADMIN), admin_controllers_1.adminController.deletePlayer);
 router.delete("/delete-team/:id", (0, authMiddleware_1.default)(client_1.UserRole.ADMIN), admin_controllers_1.adminController.deleteTeam);
 router.patch("/confirm-player/:id", (0, authMiddleware_1.default)(client_1.UserRole.ADMIN), (req, res, next) => {

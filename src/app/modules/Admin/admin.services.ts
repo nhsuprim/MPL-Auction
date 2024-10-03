@@ -66,6 +66,17 @@ const confirmPlayer = async (id: any) => {
     });
     return player;
 };
+const requestPlayer = async () => {
+    const player = await prisma.player.findMany({
+        where: {
+            isConfirmed: false,
+        },
+        include: {
+            team: true,
+        },
+    });
+    return player;
+};
 
 const createSuperAdmin = async (payload: any) => {
     const hashedPassword = await bcrypt.hash(payload.password, 12);
@@ -106,4 +117,5 @@ export const adminService = {
     confirmPlayer,
     deleteTeam,
     createSuperAdmin,
+    requestPlayer,
 };
