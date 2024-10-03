@@ -34,6 +34,7 @@ const createCaptain = zod_1.z.object({
         }),
     }),
 });
+//updated zod
 const createPlayer = zod_1.z.object({
     password: zod_1.z.string({
         required_error: "Password is required",
@@ -45,6 +46,9 @@ const createPlayer = zod_1.z.object({
         contactNumber: zod_1.z.string({
             required_error: "Contact Number is required",
         }),
+        address: zod_1.z.string({
+            required_error: "Address is required",
+        }),
         email: zod_1.z.string({
             required_error: "Email is required",
         }),
@@ -53,7 +57,7 @@ const createPlayer = zod_1.z.object({
         }),
         age: zod_1.z.number().optional(), // Optional field
         battingOrder: zod_1.z.number().optional(), // Optional field
-        bowlingType: zod_1.z.enum(["SPIN", "FAST", "MEDIUM"]).optional(),
+        bowlingType: zod_1.z.enum(["NONE", "SPIN", "FAST", "MEDIUM"]).optional(),
         auctionStatus: zod_1.z.enum(["AVAILABLE", "SOLD"]),
     }),
 });
