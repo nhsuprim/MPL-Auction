@@ -32,6 +32,7 @@ fileUploaders_1.fileUploader.upload.array("files", 3), // Allow up to 3 files, a
         next(error);
     }
 });
+router.patch("/change-password/:id", (0, authMiddleware_1.default)("ADMIN", "SUPERADMIN"), user_controllers_1.userControllers.changePassword);
 router.get("/admin", 
 // auth("ADMIN", "SUPERADMIN"),
 user_controllers_1.userControllers.getAdmin);

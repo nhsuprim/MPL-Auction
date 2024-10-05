@@ -139,6 +139,17 @@ const createPlayer = async (req) => {
     });
     return result;
 };
+const changePassword = async (id, payload) => {
+    // console.log(password);
+    const hashedPassword = await bcrypt.hash(payload.password, 12);
+    const userInfo = await prisma_1.default.user.update({
+        where: { id },
+        data: {
+            password: hashedPassword,
+        },
+    });
+    return userInfo;
+};
 const getAdmin = async () => {
     return "admin";
 };
@@ -147,4 +158,5 @@ exports.userServices = {
     createCaptain,
     createPlayer,
     getAdmin,
+    changePassword,
 };

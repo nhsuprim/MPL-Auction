@@ -43,6 +43,11 @@ router.post(
         }
     }
 );
+router.patch(
+    "/change-password/:id",
+    auth("ADMIN", "SUPERADMIN"),
+    userControllers.changePassword
+);
 router.get(
     "/admin",
     // auth("ADMIN", "SUPERADMIN"),

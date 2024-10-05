@@ -54,9 +54,28 @@ const getAdmin = async (req, res, next) => {
         next(error); // Forward the error to error-handling middleware
     }
 };
+const changePassword = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const result = await user_services_1.userServices.changePassword(id, req.body);
+        res.status(200).json({
+            success: true,
+            message: "Password changed successfully",
+            data: result,
+        });
+    }
+    catch (error) {
+        next(error);
+        // res.status(400).json({
+        //     success: false,
+        //     message: "Password changed failed",
+        // });
+    }
+};
 exports.userControllers = {
     createAdmin,
     createCaptain,
     createPlayer,
     getAdmin,
+    changePassword,
 };
